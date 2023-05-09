@@ -1,6 +1,6 @@
 # The AirBnB Clone Project
-(https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230509%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230509T082951Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=f495b0d97a9527edc8ce5049c3b42434a83530726bb2f61b44d3b00d14ff2612)
-
+<img src="https://github.com/Obed45/AirBnB_clone/blob/master/65f4a1dd9c51265f49d0.png">
+---
 ## Project Description
 This is the first part of the AirBnB clone project where we worked on the backend of the project whiles interfacing it with a console application with the help of the cmd module in python.
 
