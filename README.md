@@ -1,5 +1,5 @@
 # The AirBnB Clone Project
-<img src="https://github.com/Obed45/AirBnB_clone/blob/master/65f4a1dd9c51265f49d0.png">
+<img src="https://github.com/Obed45/AirBnB_clone/blob/master/assets/65f4a1dd9c51265f49d0.png">
 
 ## Project Description
 This is the first part of the AirBnB clone project where we worked on the backend of the project whiles interfacing it with a console application with the help of the cmd module in python.
