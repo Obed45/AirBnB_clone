@@ -9,7 +9,7 @@ from time import sleep
 from models.amenity import Amenity # I need to verify this line
 
 
-class TestAmenity_instantiation(unittest.Testcase):
+class TestAmenity_instantiation(unittest.TestCase):
     """Testing instantiation of Amenity Class"""
 
     def test_no_args_instantiates(self):
@@ -81,7 +81,7 @@ class TestAmenity_save(unittest.TestCase):
     """Testing save method of Amenity class"""
 
     @classmethod
-    def setup(self):
+    def setUp(self):
         try:
             os.rename("file.json", "tmp")
         except IOError:
