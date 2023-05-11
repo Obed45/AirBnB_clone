@@ -9,7 +9,7 @@ from time import sleep
 from models.review import Review # I need to verify this line
 
 
-class TestPlace_instantiation(unittest.Testcase):
+class TestPlace_instantiation(unittest.TestCase):
     """Testing instantiation of Review Class"""
 
     def test_no_args_instantiates(self):
@@ -37,7 +37,7 @@ class TestPlace_instantiation(unittest.Testcase):
         rv = Review()
         self.assertEqual(str, type(Review.user_id))
         self.assertIn("user_id", dir(rv))
-        self.assertNotIn("user_id, rv.__dict__")
+        self.assertNotIn("user_id", rv.__dict__)
 
     def test_text_is_puclic_class_attribute(self):
         rv = Review()
@@ -48,7 +48,7 @@ class TestPlace_instantiation(unittest.Testcase):
 
     def test_two_reviews_unique_ids(self):
         rv1 = Review()
-        rv2 = Revieww()
+        rv2 = Review()
         self.assertNotEqual(rv1.id, rv2.id)
 
     def test_two_reviews_different_created_at(self):
@@ -176,7 +176,7 @@ class TestReview_to_dict(unittest.TestCase):
         rv.created_at = rv.updated_at = dt
         tdict = {
                 'id': '123456',
-                '__class__': 'Place',
+                '__class__': 'Review',
                 'created_at': dt.isoformat(),
                 'updated_at': dt.isoformat(),
                 }
@@ -184,7 +184,7 @@ class TestReview_to_dict(unittest.TestCase):
 
     def test_contrast_to_dict_dunder_dict(self):
         rv = Review()
-        self.assertNotEqual(rv.to_dict(), rv.__dict__)
+        self.assertNotEqual(rv.to_dict(), rv.__dict__())
 
     def test_to_dict_with_arg(self):
         rv = Review()

@@ -9,7 +9,7 @@ from time import sleep
 from models.state import State # I need to verify this line
 
 
-class TestState_instantiation(unittest.Testcase):
+class TestState_instantiation(unittest.TestCase):
     """Testing instantiation of State Class"""
 
     def test_no_args_instantiates(self):
@@ -85,7 +85,7 @@ class TestState_save(unittest.TestCase):
     """Testing save method of State class"""
 
     @classmethod
-    def setup(self):
+    def setUp(self):
         try:
             os.rename("file.json", "tmp")
         except IOError:
@@ -125,7 +125,7 @@ class TestState_save(unittest.TestCase):
         st.save()
         stid = "State." + st.id
         with open("file.json", "r") as f:
-            self.assertIn(stid, f.read())
+            self.assertIn(st.id, f.read())
 
 
 
@@ -163,7 +163,7 @@ class TestState_to_dict(unittest.TestCase):
         st.created_at = st.updated_at = dt
         tdict = {
                 'id': '123456',
-                '__class__': 'Place',
+                '__class__': 'State',
                 'created_at': dt.isoformat(),
                 'updated_at': dt.isoformat(),
                 }

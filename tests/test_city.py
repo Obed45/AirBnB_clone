@@ -9,7 +9,7 @@ from time import sleep
 from models.city import City # I need to verify this line
 
 
-class TestCity_instantiation(unittest.Testcase):
+class TestCity_instantiation(unittest.TestCase):
     """Testing instantiation of City Class"""
 
     def test_no_args_instantiates(self):
@@ -91,7 +91,7 @@ class TestCity_save(unittest.TestCase):
     """Testing save method of City class"""
 
     @classmethod
-    def setup(self):
+    def setUp(self):
         try:
             os.rename("file.json", "tmp")
         except IOError:
@@ -108,7 +108,7 @@ class TestCity_save(unittest.TestCase):
         sleep(0.05)
         first_updated_at = cy.updated_at
         cy.save()
-        self.assertLess(first_updated_at, am.updated_at)
+        self.assertLess(first_updated_at, cy.updated_at)
 
     def test_two_saves(self):
         cy = City()
@@ -119,7 +119,7 @@ class TestCity_save(unittest.TestCase):
         self.assertLess(first_updated_at, second_updated_at)
         sleep(0.05)
         cy.save()
-        self.assertLess(second_updated_at, am.updated_at)
+        self.assertLess(second_updated_at, cy.updated_at)
 
     def test_save_with_arg(self):
         cy = City()

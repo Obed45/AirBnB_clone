@@ -9,7 +9,7 @@ from time import sleep
 from models.place import Place # I need to verify this line
 
 
-class TestPlace_instantiation(unittest.Testcase):
+class TestPlace_instantiation(unittest.TestCase):
     """Testing instantiation of Place Class"""
 
     def test_no_args_instantiates(self):
@@ -127,7 +127,7 @@ class TestCity_save(unittest.TestCase):
     """Testing save method of Place class"""
 
     @classmethod
-    def setup(self):
+    def setUp(self):
         try:
             os.rename("file.json", "tmp")
         except IOError:

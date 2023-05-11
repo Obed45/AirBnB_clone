@@ -9,7 +9,7 @@ from time import sleep
 from models.base_model import BaseModel # I need to verify this line
 
 
-class TestBaseModel_instantiation(unittest.Testcase):
+class TestBaseModel_instantiation(unittest.TestCase):
     """Testing instantiation of BaseModel Class"""
 
     def test_no_args_instantiates(self):
@@ -86,7 +86,7 @@ class TestBaseModel_save(unittest.TestCase):
     """Testing save method of BaseModel class"""
 
     @classmethod
-    def setup(self):
+    def setUp(self):
         try:
             os.rename("file.json", "tmp")
         except IOError:
@@ -99,7 +99,7 @@ class TestBaseModel_save(unittest.TestCase):
             pass
 
     def test_one_save(self):
-        am = BaseModel()
+        bm = BaseModel()
         sleep(0.05)
         first_updated_at = bm.updated_at
         bm.save()

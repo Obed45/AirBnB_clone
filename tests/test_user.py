@@ -9,7 +9,7 @@ from time import sleep
 from models.user import User # I need to verify this line
 
 
-class TestUser_instantiation(unittest.Testcase):
+class TestUser_instantiation(unittest.TestCase):
     """Testing instantiation of User Class"""
 
     def test_no_args_instantiates(self):
@@ -62,7 +62,7 @@ class TestUser_instantiation(unittest.Testcase):
         us = User()
         us.id = "123456"
         us.created_at = us.updated_at = dt
-        usstr = st.__str__()
+        usstr = us.__str__()
         self.assertIn("[User] (123546)", usstr)
         self.assertIn("'id': '123456'", usstr)
         self.assertIn("'created_at': " + dt_repr, usstr)
@@ -91,7 +91,7 @@ class TestUser_save(unittest.TestCase):
     """Testing save method of User class"""
 
     @classmethod
-    def setup(self):
+    def setUp(self):
         try:
             os.rename("file.json", "tmp")
         except IOError:
@@ -119,7 +119,7 @@ class TestUser_save(unittest.TestCase):
         self.assertLess(first_updated_at, second_updated_at)
         sleep(0.05)
         us.save()
-        self.assertLess(second_updated_at, st.updated_at)
+        self.assertLess(second_updated_at, us.updated_at)
 
     def test_save_with_arg(self):
         us = User()
@@ -169,7 +169,7 @@ class TestUser_to_dict(unittest.TestCase):
         us.created_at = us.updated_at = dt
         tdict = {
                 'id': '123456',
-                '__class__': 'Place',
+                '__class__': 'User',
                 'created_at': dt.isoformat(),
                 'updated_at': dt.isoformat(),
                 }
