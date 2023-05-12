@@ -18,7 +18,7 @@ class TestHBNBCommand(unittest.TestCase):
     @patch('sys.stdout', new_callable=StringIO)
     def test_do_create(self, mock_stdout):
         self.command.do.create("BaseModel")
-        output - mock_stdout.getvalue().strip()
+        output = mock_stdout.getvalue().strip()
         self.assertTrue(output != "")
         self.assertTrue(output.isalnum())
         self.assertTrue(mock_save.called)
@@ -29,7 +29,7 @@ class TestHBNBCommand(unittest.TestCase):
     @patch('sys.stdout', new_callable=StringIO)
     def test_do_create_missing class(self, mock_stdout):
         self.command.do_create("")
-        output = mock_stdout.getvalue()strip()
+        output = mock_stdout.getvalue().strip()
         self.assertEqual(output, "** class name missing **")
 
     @patch('sys.stdout', new_callable=StringIO)
@@ -55,14 +55,14 @@ class TestHBNBCommand(unittest.TestCase):
         with patch.object(FileStorage, 'save'):
             self.command.do_create("BaseModel")
             self.command.do_show("BaseModel 123")
-            output = mock_stdout,getvalue().strip()
+            output = mock_stdout.getvalue().strip()
             self.assertEqual(output, "** no instance found **")
 
     @patch('sys.stdout', new_callavble=StringIO)
     def test_do_destroy(self, mock_stdout):
         self.command.do_destroy("")
         output = mock_stdout.getvalue().strip()
-        self.assertEqual(ouput, "** class doesn't exist **")
+        self.assertEqual(output, "** class doesn't exist **")
 
         self.command.do_destroy("BaseModel")
         output = mock_stdout.getvalue().strip()
@@ -91,7 +91,7 @@ class TestHBNBCommand(unittest.TestCase):
             self.command.do_all("")
             output = mock_stdout.getvalue().strip()
             self.assertIn("<BaseModel", output)
-            self.assertIn("<BaseModel", ouput)
+            self.assertIn("<BaseModel", output)
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_do_count(self, mock_stdout):
@@ -103,7 +103,7 @@ class TestHBNBCommand(unittest.TestCase):
         self.assertEqual(output, "** class doesn't exist **")
 
         with patch.object(FileStorage, 'save'):
-            se;f.command.do_create("BaseModel")
+            self.command.do_create("BaseModel")
             self.command.do_create("BaseModel")
             self.command.do_count("BaseModel")
             output = mock_stdout.getvalue().strip()
@@ -112,7 +112,7 @@ class TestHBNBCommand(unittest.TestCase):
     @patch('sys.stdout', new_callable=StringIO)
     def test_do_update(self, mock_stdout):
         self.command.do_update("")
-        output = mock_stdout,getvalue().strip()
+        output = mock_stdout.getvalue().strip()
         self.assertEqual(output, "** class name missing **")
 
         self.command.do_update("InvalidClass 123")
@@ -208,5 +208,5 @@ class TestHBNBCommand(unittest.TestCase):
             self.assertEqual(output, "")
 
 
-if name == 'main':
+if __name__ == '__main__':
     unittest.main()
